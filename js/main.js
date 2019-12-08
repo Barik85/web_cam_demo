@@ -10,7 +10,7 @@ let streaming;
 const ctx = cameraCanvas.getContext('2d');
 
 const constraints = {
-  video: { facingMode: 'user'},
+  video: { facingMode: 'environment'},
   audio: false
 };
 
