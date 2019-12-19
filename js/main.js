@@ -23,7 +23,6 @@ let imgHeight = 300;
 const img = new Image();
   img.src = './img/silhuette.png';
 
-
 img.onload = function() {
   ctx.drawImage(img, 0, 0, imgWidth, imgHeight);
 }
@@ -44,7 +43,7 @@ const startLoop = () => {
 
 cameraOutput.addEventListener('loadedmetadata', function() {
   width = cameraCanvas.width = cameraOutput.videoWidth > window.innerWidth ? window.innerWidth : cameraOutput.videoWidth;
-  height = cameraCanvas.height = cameraOutput.videoHeight > window.innerHeight ? window.innerHeght : cameraOutput.videoHeight;
+  height = cameraCanvas.height = cameraOutput.videoHeight > window.innerHeight ? window.innerHeight : cameraOutput.videoHeight;
 
   if (width < height) {
     imgWidth = width - 50;
@@ -54,8 +53,6 @@ cameraOutput.addEventListener('loadedmetadata', function() {
     imgHeight = imgHeight * 0.68;
   }
 
-  console.log('width', width);
-  console.log('imgWidth', imgWidth);
   startLoop();
 });
 
@@ -63,7 +60,6 @@ const cameraStart = () => {
   navigator.mediaDevices
     .getUserMedia(constraints)
     .then(stream => {
-      console.log('stream: ', stream.contentHint);
       streaming = stream;
       cameraOutput.srcObject = stream;
     })
